@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+<p class="completed">likith</p>
+<a href="{{ url_for('deleteall_todo') }}" type="button" class="btn btn-danger">DeleteALL</button>
+</a>
+{% for todo in todos %}
+<div class="card mt-3">
+             
+        
+    <div class="card-body">
+
+       <a href="{{ url_for('complete_todo',id = todo._id) }}">
+       
+        <h5 class="card-title {% if todo.complete %} completed {% endif %} ">{{todo.text}}</h5>
+       
+    </a>
+        <p class="card-text text-muted">{{todo.date_created}}</p>
+       
+    </div>
+
+
+
+
+</div>
+<br>
+<a href="{{ url_for('update_todo', id = todo._id)}}" type=button class ="btn btn-info btn-sm">Update</a>
+
+<a href="{{ url_for('delete_todo', id = todo._id)}}" class ="btn btn-outline-danger">delete</a>
+
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container mt-5">
+          <div class="mb-3"> 
+            <label for="add_todo" class="form-label">Add Your todo</label>
+            <nav class="navbar bg-body-tertiary">
+              <div class="container-fluid">
+                <form class="d-flex" action="{{ url_for('add_todo') }}" method="POST" role="form">
+  
+                <div class="input-group">
+                  <input name="add_todo" class="form-control me-2" type="text" placeholder="Add your todos here" aria-label="Search">
+  
+                  <!-- form.csrf_token() -->
+                  <span  class="input-group-btn"> <button class="btn btn-outline-success mt-2" type="submit">Add</button>
+  </span>
+            
+              </form>
+              
+{% endblock content %}
